@@ -21,7 +21,8 @@ menu = st.sidebar.radio("Navigation", [
 @st.cache_data
 def load_data():
     try:
-        return pd.read_csv("C:/Users/Chilly's Alienware/Desktop/streamlit/nyc_hotels_data_partial_45000.csv")
+        return pd.read_csv("nyc_hotels_data_partial_45000.csv")
+
     except:
         return None
 
@@ -30,7 +31,7 @@ df = load_data()
 @st.cache_data
 def load_nlp_data():
     try:
-        return pd.read_csv("C:/Users/Chilly's Alienware/Desktop/streamlit/nlp_reviews_cleaned.csv")
+        return pd.read_csv("nlp_reviews_cleaned.csv")
     except:
         return None
 
@@ -110,8 +111,8 @@ elif menu == "🤖 Machine Learning Insights":
     st.metric("Root Mean Squared Error (RMSE)", "0.49")
 
     try:
-        preds = pd.read_csv("C:/Users/Chilly's Alienware/Desktop/streamlit/predicted_scores.csv")
-
+        preds = pd.read_csv("predicted_scores.csv")
+        
         st.subheader("Predicted vs Actual Ratings")
         fig1, ax1 = plt.subplots()
         sns.scatterplot(data=preds, x='Actual', y='Predicted', ax=ax1)
